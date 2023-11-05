@@ -1,0 +1,6 @@
+<div style="text-align: center;">
+    <h1>Book</h1>
+    <p>Title of the book: {{ book.title }}</p>
+    <p>Publication Date: {{ book.publicationDate | date("F j, Y H:i") }}</p>
+    <p>Author: {{ book.author.username }}</p>
+</div>

@@ -1,0 +1,13 @@
+{# templates/bookk/edit_book.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le Livre{% endblock %}
+
+{% block body %}
+    <h1> Update Book</h1>
+
+    {{ form_start(formB) }}
+    {{ form_widget(formB) }}
+    {{ form_end(formB) }}
+{% endblock %}
+

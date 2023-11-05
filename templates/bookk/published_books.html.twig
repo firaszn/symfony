@@ -1,0 +1,45 @@
+{% block body %}
+    <h1>Liste of books</h1>
+                           <center>             <button> <a href="{{ path('addbookk') }}">create new <a/></button>  </center>  
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Date de Publication</th>
+                <th>published</th>
+                <th>Catégorie</th>
+                <th>Auteur</th>
+                <th>Action</th> <!-- Nouvelle colonne pour le lien Edit -->
+            </tr>
+        </thead>
+        <tbody>
+            {% if publishedBooks is empty %}
+                <tr>
+                    <td colspan="6">no books found</td>
+                </tr>
+            {% else %}
+                {% for book in publishedBooks %}
+                    <tr>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.publicationDate|date('Y-m-d') }}</td>
+                        <td>{{ book.published }}</td>
+                        <td>{{ book.category }}</td>
+                        <td>{{ book.author.username }}</td>
+                        <td>
+                            <a href="{{ path('edit_book', {'ref': book.ref}) }}">Edit</a>
+                            |
+                            <a href="{{ path('delete_book', {'ref': book.ref}) }}" onclick="return confirm('Are you sure you want to delete this book?');">Delete</a>
+                            |<a href="{{ path('show_book', {'ref': book.ref}) }}">Show</a>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+
+    </table>
+    <p>Number of published books : {{ publishedCount }}</p>
+    <p>Number of unpublished books : {{ unpublishedCount }}</p>
+    <p>Somme des Livres de la Catégorie "{{ category }}" : {{ bookCount }}</p>
+{% endblock %}

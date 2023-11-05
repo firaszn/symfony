@@ -1,0 +1,23 @@
+<table border="1">
+    <!-- En-têtes de colonnes -->
+    <tr>
+        <td>REF</td>
+        <td>Title</td>
+        <td>Category</td>
+        <td>Publication Date</td>
+        <td>Published</td>
+        <td>Author</td>
+    </tr>
+    
+    <!-- Afficher les livres triés -->
+    {% for book in books %}
+        <tr>
+            <td>{{ book.ref }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.category }}</td>
+            <td>{{ book.publicationDate|date("F j, Y H:i") }}</td>
+            <td>{{ book.published }}</td>
+            <td>{{ book.author.username }}</td> <!-- Assurez-vous d'ajuster le chemin pour accéder au nom de l'auteur -->
+        </tr>
+    {% endfor %}
+</table>

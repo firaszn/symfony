@@ -1,0 +1,16 @@
+{# templates/bookk/books_between_dates.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books Published Between Dates</title>
+</head>
+<body>
+    <h1>Books Published Between {{ startDate|date('Y-m-d') }} and {{ endDate|date('Y-m-d') }}</h1>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} - {{ book.publicationDate|date('Y-m-d') }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
